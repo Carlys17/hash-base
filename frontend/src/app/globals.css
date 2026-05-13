@@ -1,0 +1,113 @@
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-elev: #111111;
+  --color-phosphor: #39ff14;
+  --color-phosphor-dim: #1a8a0a;
+  --color-phosphor-faint: #0d3306;
+  --color-amber: #ffbf00;
+  --color-muted: #555555;
+  --color-danger: #ff5555;
+  --color-text: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-phosphor-dim);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-phosphor);
+}
+
+.term-glow {
+  text-shadow: 0 0 8px var(--color-phosphor), 0 0 2px var(--color-phosphor);
+}
+
+.term-cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--color-phosphor);
+}
+.term-cursor::after {
+  content: "▮";
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.term-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--color-phosphor-faint);
+  background: var(--color-bg-elev);
+  color: var(--color-phosphor);
+  font-family: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.term-btn:hover {
+  border-color: var(--color-phosphor);
+  box-shadow: 0 0 8px var(--color-phosphor-faint);
+}
+.term-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.term-btn-danger {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+.term-btn-danger:hover {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 8px rgba(255, 85, 85, 0.3);
+}
+.term-btn-amber {
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+}
+
+.term-row {
+  border-bottom: 1px solid var(--color-phosphor-faint);
+  padding: 6px 0;
+}
+.term-row:last-child {
+  border-bottom: none;
+}
+
+.term-row:hover {
+  background: rgba(57, 255, 20, 0.02);
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-phosphor-faint);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--color-phosphor);
+  transition: width 0.3s;
+}
+.progress-fill.amber {
+  background: var(--color-amber);
+}
+
+input[type="range"] {
+  accent-color: var(--color-phosphor);
+}
